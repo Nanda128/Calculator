@@ -6,9 +6,6 @@ Made With Looove by Nanda and Samir
 """
 )
 
-import addition
-import subtraction
-
 class Operand:
     def __init__(self, args : list[str], handler):
         self.args = args
