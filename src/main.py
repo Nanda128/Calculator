@@ -15,8 +15,10 @@ class Operand:
         self.handler = handler
 
 handlers = {
-        "add" : Operand(["Lhs", "Rhs"], addition.add),
-        "sub" : Operand(["Lhs", "Rhs"], subtraction.sub),
+        "add" : Operand(["Lhs", "Rhs"], lambda x, y: x + y),
+        "sub" : Operand(["Lhs", "Rhs"], lambda x, y: x - y),
+        "mul" : Operand(["Lhs", "Rhs"], lambda x, y: x * y),
+        "div" : Operand(["Numerator", "Denominator"], lambda x, y: x / y)
         }
 
 
