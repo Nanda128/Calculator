@@ -10,13 +10,13 @@ import addition
 import subtraction
 
 class Operand:
-    def __init__(self, arg_count : int, handler):
-        self.argc = arg_count
+    def __init__(self, args : list[str], handler):
+        self.args = args
         self.handler = handler
 
 handlers = {
-        "add" : Operand(2, addition.add),
-        "sub" : Operand(2, subtraction.sub),
+        "add" : Operand(["Lhs", "Rhs"], addition.add),
+        "sub" : Operand(["Lhs", "Rhs"], subtraction.sub),
         }
 
 
@@ -32,8 +32,8 @@ while True:
 
 
 inputs = []
-for i in range(chosen.argc):
-    inputs.append(int(input(f"Operand {i+1} > ")))
+for arg in chosen.args:
+    inputs.append(int(input(f"{arg} > ")))
 
 result = chosen.handler(*inputs)
 print(f"Result > {result}")
